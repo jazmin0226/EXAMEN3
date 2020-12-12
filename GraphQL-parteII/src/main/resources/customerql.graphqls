@@ -1,0 +1,21 @@
+type Customer {
+    id: ID!,
+    name: String!,
+    lastname: String!,
+    address: String,
+    billingAddress: String,
+    cardNumber: String,
+    month: Int,
+    year: Int
+}
+
+type Query {
+    customers(count: Int): [Customer]
+    customer(id:ID): Customer
+}
+
+type Mutation {
+    createCustomer (name: String!, lastname: String!, address: String, billingAddress: String, cardNumber: String, month: Int, year: Int): Customer
+    updateCustomer (id: ID!, name: String, lastname: String, address: String, billingAddress: String, cardNumber: String, month: Int, year: Int): Customer
+    deleteCustomer(id: ID!): Boolean
+}
